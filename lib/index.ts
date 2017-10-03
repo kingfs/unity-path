@@ -1,5 +1,3 @@
-'use strict'
-
 import * as process from 'process'
 import * as fs from 'fs'
 import * as pify from 'pify'
