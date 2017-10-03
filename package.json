@@ -31,7 +31,6 @@
     "pify": "^3.0.0"
   },
   "devDependencies": {
-    "@types/is-array": "^1.0.0",
     "@types/node": "^8.0.31",
     "@types/pify": "^3.0.0"
   }

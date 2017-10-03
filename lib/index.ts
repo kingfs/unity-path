@@ -44,20 +44,16 @@ export default function unityPath(path?: string|string[]): Promise<string> {
     let paths = path as Array<string>
     if (paths.length <= 0) return unityPath()
 
-    paths.reduceRight((acc, curr) =>
+    return paths.reduce((acc, curr) =>
       acc.then(
         val => Promise.resolve(val),
-        err => pify(fs.access)(curr, fs.constants.X_OK).then(_ => curr)
+        err => pify(fs.access)(curr, fs.constants.X_OK)
+                 .then(_ => Promise.resolve(curr), _ => Promise.reject(err))
       ),
-      Promise.reject('')
-    )
-    .then(
-      val => Promise.resolve(val),
-      err => Promise.reject(
+      Promise.reject(
         `Unable to locate Unity installation, tried all of these paths: ` +
-        `${paths.map(p => `"{$p}"`).join(', ')}.` +
-        `Try using unityPath('/path/to/unity/executable') before any other calls.`
-      )
-    )
+        `${paths.map(p => `"${p}"`).join(', ')}. ` +
+        `Try setting env 'UNITY_PATH' or supplying a path to check as first argument.`
+      ))
   }
 }
