@@ -1,7 +1,10 @@
-import fs from 'fs'
-import pify from 'pify'
-import isString from 'is-string'
-import isArray from 'is-array'
+'use strict'
+
+import * as process from 'process'
+import * as fs from 'fs'
+import * as pify from 'pify'
+import * as isString from 'is-string'
+import * as isArray from 'is-array'
 
 const unityInstallPaths = [
   '/opt/Unity/Editor/Unity',
@@ -46,7 +49,7 @@ export default function unityPath(path?: string|string[]): Promise<string> {
         val => Promise.resolve(val),
         err => pify(fs.access)(curr, fs.constants.X_OK).then(_ => curr)
       ),
-      Promise.reject()
+      Promise.reject('')
     )
     .then(
       val => Promise.resolve(val),

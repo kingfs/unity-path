@@ -24,5 +24,15 @@
   "bugs": {
     "url": "https://github.com/bersling/mylib/issues"
   },
-  "homepage": "https://github.com/bersling/mylib#readme"
+  "homepage": "https://github.com/bersling/mylib#readme",
+  "dependencies": {
+    "is-array": "^1.0.1",
+    "is-string": "^1.0.4",
+    "pify": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/is-array": "^1.0.0",
+    "@types/node": "^8.0.31",
+    "@types/pify": "^3.0.0"
+  }
 }
