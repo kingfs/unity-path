@@ -1,37 +1,62 @@
 {
-  "name": "hwrld",
+  "name": "unity-path",
   "version": "1.0.0",
-  "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
+  "description": "Answering the question: \"Where is Unity3D?\"",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "bin/unity-path",
+    "dist/index.js",
+    "dist/index.js.map",
+    "dist/index.d.ts",
+    "doc/",
+    "lib/",
+    "LICENSE",
+    "CODE_OF_CONDUCT.md",
+    "README.md"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "lint": "tslint 'lib/**/*.ts' --format stylish",
+    "spec": "nyc mocha --opts ./mocha.opts",
+    "test": "npm run lint && npm run spec",
+    "test:watch": "mocha -w --reporter min"
+  },
+  "engines": {
+    "node": ">=6"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bersling/mylib.git"
+    "url": "git+https://github.com/zettaforge/unity-path.git"
   },
   "keywords": [
-    "demo",
-    "typescript",
-    "library",
-    "hello",
-    "world",
-    "2017"
+    "unity",
+    "unity3d",
+    "path"
   ],
   "author": "zettaforge",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bersling/mylib/issues"
+    "url": "https://github.com/zettaforge/unity-path/issues"
   },
-  "homepage": "https://github.com/bersling/mylib#readme",
+  "homepage": "https://github.com/zettaforge/unity-path#readme",
   "dependencies": {
     "is-array": "^1.0.1",
     "is-string": "^1.0.4",
     "pify": "^3.0.0"
   },
   "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.43",
     "@types/node": "^8.0.31",
-    "@types/pify": "^3.0.0"
+    "@types/pify": "^3.0.0",
+    "chai": "^4.1.2",
+    "eslint": "^4.8.0",
+    "mocha": "^4.0.0",
+    "nyc": "^11.2.1",
+    "source-map-support": "^0.4.18",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.3"
   }
 }

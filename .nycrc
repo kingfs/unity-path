@@ -1,0 +1,15 @@
+{
+  "include": [
+    "lib/**/*.ts"
+  ],
+  "extension": [
+    ".ts"
+  ],
+  "reporter": [
+    "lcov",
+    "text",
+    "html"
+  ],
+  "sourceMap": true,
+  "instrument": true
+}
