@@ -41,7 +41,8 @@ export default function unityPath(path?: string|string[]): Promise<string> {
   else if (isArray(path)) {
     let paths = path as Array<string>
     if (paths.length <= 0) return unityPath()
-
+    
+    // based on mitmadness/UnityInvoker
     return paths.reduce((acc, curr) =>
       acc.then(
         val => Promise.resolve(val),
