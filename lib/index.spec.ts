@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import * as unityPath from './index';
+import { unityPath } from './index';
 
 import * as mocha from 'mocha';
 import * as chai from 'chai';
@@ -19,8 +19,8 @@ const unityInstallPaths = {
 }
 
 describe('unity-path', () => {
-  it('should export a function by default', () => {
-    expect(unityPath.default).to.be.a('function')
+  it('should export a function', () => {
+    expect(unityPath).to.be.a('function')
   })
   describe('unityPath()', () => {
     let access: sinon.SinonStub;
@@ -43,7 +43,7 @@ describe('unity-path', () => {
       access.withArgs(unityInstallPaths.win).callsFake(winStub)
       access.withArgs(unityInstallPaths.wow64).callsFake(wow64Stub)
       // test ordering
-      return expect(unityPath.default())
+      return expect(unityPath())
         .to.be.rejected.and
         .then(() => {
           expect(debianStub).to.have.been.calledOnce
@@ -52,12 +52,29 @@ describe('unity-path', () => {
           expect(wow64Stub).to.have.been.calledOnce.and.calledAfter(winStub)
         })
     })
-    it('should find Unity at each default path', () => {
-      //
+    it('should find Unity at default path on Debian/Ubuntu', () => {
+      let debianStub = sinon.stub().callsArgAsync(2)
+      access.withArgs(unityInstallPaths.debian).callsFake(debianStub)
+      return expect(unityPath()).to.eventually.equal(unityInstallPaths.debian)
+    })
+    it('should find Unity at default path on OS X', () => {
+      let osxStub = sinon.stub().callsArgAsync(2)
+      access.withArgs(unityInstallPaths.osx).callsFake(osxStub)
+      return expect(unityPath()).to.eventually.equal(unityInstallPaths.osx)
+    })
+    it('should find Unity at default path on Windows', () => {
+      let winStub = sinon.stub().callsArgAsync(2)
+      access.withArgs(unityInstallPaths.win).callsFake(winStub)
+      return expect(unityPath()).to.eventually.equal(unityInstallPaths.win)
+    })
+    it('should find Unity at default path on Windows/WOW64', () => {
+      let wow64Stub = sinon.stub().callsArgAsync(2)
+      access.withArgs(unityInstallPaths.wow64).callsFake(wow64Stub)
+      return expect(unityPath()).to.eventually.equal(unityInstallPaths.wow64)
     })
     it('should reject if Unity is not found at any of the default paths', () => {
-      expect(unityPath.default()).to.be.rejectedWith(
-        /^Unable to locate Unity installation, tried all of these paths:( "([^"]+)"[,\.]){4} Try setting env \'UNITY_PATH\' or supplying a path to check as first argument\.$/)
+      expect(unityPath()).to.be.rejectedWith(
+        /^Unable to locate Unity installation, tried all of these paths:( "([^"]{2,})"[,\.]){4} Try setting env \'UNITY_PATH\' or supplying a path to check as first argument\.$/)
     })
   })
 });

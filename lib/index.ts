@@ -12,7 +12,7 @@ const unityInstallPaths = [
 
 let resolvedUnityPath: string = null
 
-export default function unityPath(path?: string|string[]): Promise<string> {
+export function unityPath(path?: string|string[]): Promise<string> {
   // if no argument is given, act as a getter.
   if (path === undefined) {
     // if the resolved path is valid, return it immediately
