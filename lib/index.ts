@@ -1,8 +1,7 @@
 import * as process from 'process'
 import * as fs from 'fs'
 import * as pify from 'pify'
-import * as isString from 'is-string'
-import * as isArray from 'is-array'
+import { isString } from 'lodash'
 
 const unityInstallPaths = [
   '/opt/Unity/Editor/Unity',
@@ -38,10 +37,10 @@ export default function unityPath(path?: string|string[]): Promise<string> {
   }
   // if the argument is an array, try the paths specified.
   // the provided order of the paths determines their priority when checking if the executable exists.
-  else if (isArray(path)) {
+  else if (Array.isArray(path)) {
     let paths = path as Array<string>
     if (paths.length <= 0) return unityPath()
-    
+
     // based on mitmadness/UnityInvoker
     return paths.reduce((acc, curr) =>
       acc.then(
