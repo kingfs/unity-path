@@ -4,6 +4,9 @@
   "description": "Answering the question: \"Where is Unity3D?\"",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "unity-path": "./bin/unity-path"
+  },
   "files": [
     "bin/unity-path",
     "dist/index.js",
@@ -17,7 +20,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint": "tslint 'lib/**/*.ts' --format stylish",
+    "lint": "tslint '{lib,bin}/**/*.ts' --format stylish",
     "spec": "nyc mocha --opts ./mocha.opts",
     "test": "npm run lint && npm run spec",
     "test:watch": "mocha -w --reporter min"
@@ -42,6 +45,7 @@
   },
   "homepage": "https://github.com/zettaforge/unity-path#readme",
   "dependencies": {
+    "chalk": "^2.1.0",
     "lodash": "^4.17.4",
     "pify": "^3.0.0"
   },

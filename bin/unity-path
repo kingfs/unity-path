@@ -1,3 +1,9 @@
 #!/usr/bin/env node
 'use strict'
-console.log(require('..')())
+const chalk = require('chalk')
+const args = require('minimist')(process.argv.slice(2))
+require('../dist/index.js')
+  .unityPath(args._).then(
+    function(result) { console.log(result); process.exit(0); },
+    function(errors) { console.error(chalk.red(errors)); process.exit(1); }
+  );

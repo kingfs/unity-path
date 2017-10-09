@@ -1,6 +1,6 @@
 {
   "include": [
-    "lib/**/*.ts"
+    "{lib,bin}/**/*.ts"
   ],
   "extension": [
     ".ts"
