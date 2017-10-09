@@ -7,10 +7,6 @@ notifications:
     on_success: never
     on_failure: change
 
-cache:
-  directories:
-    - $HOME/Library/Caches/Homebrew
-
 node_js:
   - "node"
   - "lts/*"
@@ -19,15 +15,10 @@ node_js:
 
 install:
   - "npm install"
-  - "travis_wait brew cask install unity"
 
 script:
   - "npm test"
   - "npm install -g"
-
-  # Test examples
-  - "./example/run-unity.sh"
-  - "node ./example/run-unity.js"
 
 after_script:
   - "npm install coveralls && nyc report --reporter=text-lcov | coveralls"
