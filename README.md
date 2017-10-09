@@ -24,8 +24,18 @@ True friendship isn't about being there when it's convenient,<br/>it's about bei
 </p>
 <hr />
 <h1 align="center">unity-path</h1>
-<p>A simple and robust way to determine where <a href="https://unity3d.com/">Unity3D</a> is installed in the current environment.</p>
-<p>I'm provided as a <a href="https://typescriptlang.org">Typescript</a>-compatible <a href="https://nodejs.org">Node.js</a> module, but also as a standalone command line utility. Under the hood I'm not that complex - just an environment variable wrapped in friendly glitter.</p>
-<p>If you have to tell me where to find your stuff, I'll remember it for as long as it makes sense and I'll make sure all of your build tooling just auto-magically works.</p>
+
+> A simple and robust way to determine where <a href="https://unity3d.com/">Unity3D</a> is installed in the current environment.
+>
+> I'm provided as a <a href="https://typescriptlang.org">Typescript</a>-compatible <a href="https://nodejs.org">Node.js</a> module, but also as a standalone command line utility. Under the hood I'm not that complex - just an environment variable wrapped in friendly glitter.
+>
+> If you have to tell me where to find your stuff, I'll remember it for as long as it makes sense and I'll make sure all of your build tooling just auto-magically works.
 
 ## Help Topics
+
+<a href="#install">Installation</a>
+<a href="#usage">Usage</a>
+<a href="#feature">Features</a>
+<a href="#examples">Examples</a>
+<a href="#contributing">Contributing</a>
+<a href="#license">License</a>
