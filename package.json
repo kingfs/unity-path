@@ -22,7 +22,7 @@
     "build": "tsc",
     "lint": "tslint '{lib,bin}/**/*.ts' --format stylish",
     "spec": "nyc mocha --opts ./mocha.opts",
-    "test": "npm run lint && npm run spec",
+    "test": "npm run build && npm run lint && npm run spec",
     "test:watch": "mocha -w --reporter min"
   },
   "engines": {
@@ -36,7 +36,8 @@
     "unity",
     "unity3d",
     "path",
-    "find"
+    "find",
+    "ci"
   ],
   "author": "zettaforge",
   "license": "MIT",

@@ -6,4 +6,4 @@ require('../dist/index.js')
   .unityPath(args._).then(
     function(result) { console.log(result); process.exit(0); },
     function(errors) { console.error(chalk.red(errors)); process.exit(1); }
-  );
+  )
