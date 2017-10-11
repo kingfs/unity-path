@@ -69,7 +69,7 @@ echo "Unity is located at: $(unity-path)"
 
 Both of these methods will set the environment variable `UNITY_PATH` on the first invocation. Any further invocations will simply read from this cached location. If you have installed Unity in a special location, you can set this from your equivalent of `.profile` or `.bash_profile` by running either:
 
-Javascript (using node):
+Javascript:
 ```javascript
 var unityPath = require('unity-path').unityPath
 unityPath('/path/to/unity')
