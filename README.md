@@ -9,6 +9,9 @@
 True friendship isn't about being there when it's convenient,<br/>it's about being there when it's not.</p>
 <hr />
 <p align="center">
+  <a href="https://www.npmjs.com/package/unity-path">
+    <img alt="npm" src="https://img.shields.io/npm/v/unity-path.svg" />
+  </a>
   <a href="https://travis-ci.org/zettaforge/unity-path">
     <img alt="Build Status" src="https://travis-ci.org/zettaforge/unity-path.svg?branch=master" />
   </a>
@@ -104,4 +107,4 @@ Please also see <a href="./CODE_OF_CONDUCT.md">our contributing CODE_OF_CONDUCT<
 
 <h2 id="license">License</h2>
 
-Please see <a href="./LICENSE">LICENSE</a>.
+Licensed under the MIT License, see <a href="./LICENSE">LICENSE</a> for more information.
