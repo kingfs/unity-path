@@ -28,14 +28,69 @@ True friendship isn't about being there when it's convenient,<br/>it's about bei
 > A simple and robust way to determine where <a href="https://unity3d.com/">Unity3D</a> is installed in the current environment.
 >
 > I'm provided as a <a href="https://typescriptlang.org">Typescript</a>-compatible <a href="https://nodejs.org">Node.js</a> module, but also as a standalone command line utility. Under the hood I'm not that complex - just an environment variable wrapped in friendly glitter.
->
-> If you have to tell me where to find your stuff, I'll remember it for as long as it makes sense and I'll make sure all of your build tooling just auto-magically works.
 
-## Help Topics
+<h2 id="topics">Help Topics</h2>
 
-<a href="#install">Installation</a>
-<a href="#usage">Usage</a>
-<a href="#feature">Features</a>
-<a href="#examples">Examples</a>
-<a href="#contributing">Contributing</a>
-<a href="#license">License</a>
+* <a href="#install">Installation</a>
+* <a href="#usage">Usage</a>
+* <a href="#contributing">Contributing</a>
+* <a href="#license">License</a>
+
+<h2 id="install">Installation</h2>
+
+For shell installations:
+npm
+```sh
+npm install -g unity-path
+```
+
+For node project installations:
+npm
+```sh
+npm i unity-path --save-dev
+```
+
+<h2 id="usage">Usage</h2>
+
+For most use cases (involving default install locations), all you need to use is either:
+
+Javascript:
+```javascript
+var unityPath = require('unity-path').unityPath
+unityPath().then(function(path) {
+  console.log('Unity is located at:', path);
+})
+```
+
+Shell:
+```sh
+echo "Unity is located at: $(unity-path)"
+```
+
+Both of these methods will set the environment variable `UNITY_PATH` on the first invocation. Any further invocations will simply read from this cached location. If you have installed Unity in a special location, you can set this from your equivalent of `.profile` or `.bash_profile` by running either:
+
+Javascript (using node):
+```javascript
+var unityPath = require('unity-path').unityPath
+unityPath('/path/to/unity')
+// or, unityPath(['/path/to/unity1', '/path/to/unity2'])
+```
+
+Shell:
+```sh
+unity-path "/path/to/unity"
+```
+
+Variations of these scripts are included in the `./examples` directory of this source package.
+
+<h2 id="contributing">Contributing</h2>
+
+_For features_, please raise an issue suggesting the feature. If the feature request is given the green light, we will accept pull requests.
+
+_For bugs_, please raise an issue notifying us of the bug. If you have a fix, you may raise a pull request immediately for code review, however you must ensure that good test coverage and high code quality is maintained.
+
+Please also see <a href="./CODE_OF_CONDUCT.md">our contributing CODE_OF_CONDUCT</a>.
+
+<h2 id="license">License</h2>
+
+Please see <a href="./LICENSE">LICENSE</a>.
