@@ -57,6 +57,7 @@ For most use cases (involving default install locations), all you need to use is
 Javascript:
 ```javascript
 var unityPath = require('unity-path').unityPath
+
 unityPath().then(function(path) {
   console.log('Unity is located at:', path);
 })
@@ -67,13 +68,23 @@ Shell:
 echo "Unity is located at: $(unity-path)"
 ```
 
+Output:
+```
+Unity is located at: /Applications/Unity/Unity.app/Contents/MacOS/Unity
+```
+or
+```
+Unable to locate Unity installation, tried all of these paths: "/opt/Unity/Editor/Unity", "/Applications/Unity/Unity.app/Contents/MacOS/Unity", "C:\Program Files\Unity\Editor\Unity.exe", "C:\Program Files (x86)\Unity\Editor\Unity.exe". Try setting env 'UNITY_PATH' or supplying a path to check as first argument.
+```
+
 Both of these methods will set the environment variable `UNITY_PATH` on the first invocation. Any further invocations will simply read from this cached location. If you have installed Unity in a special location, you can set this from your equivalent of `.profile` or `.bash_profile` by running either:
 
 Javascript:
 ```javascript
 var unityPath = require('unity-path').unityPath
+
 unityPath('/path/to/unity')
-// or, unityPath(['/path/to/unity1', '/path/to/unity2'])
+// or: unityPath(['/path/to/unity1', '/path/to/unity2'])
 ```
 
 Shell:
@@ -81,7 +92,7 @@ Shell:
 unity-path "/path/to/unity"
 ```
 
-Variations of these scripts are included in the `./examples` directory of this source package.
+Any further invocations on the system, even from deep within build tooling, will return this path instead. Variations of these scripts are included in the `./examples` directory of this source package.
 
 <h2 id="contributing">Contributing</h2>
 
