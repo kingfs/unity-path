@@ -57,7 +57,7 @@
     "@types/lodash": "^4.14.85",
     "@types/mocha": "^2.2.43",
     "@types/mockery": "^1.4.29",
-    "@types/node": "^8.0.31",
+    "@types/node": "^8.5.1",
     "@types/pify": "^3.0.0",
     "@types/sinon": "^4.0.0",
     "@types/sinon-chai": "^2.7.29",
