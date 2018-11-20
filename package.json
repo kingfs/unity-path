@@ -59,7 +59,7 @@
     "@types/mockery": "^1.4.29",
     "@types/node": "^9.3.0",
     "@types/pify": "^3.0.0",
-    "@types/sinon": "^4.0.0",
+    "@types/sinon": "^5.0.7",
     "@types/sinon-chai": "^2.7.29",
     "@types/temp": "^0.8.29",
     "chai": "^4.1.2",
